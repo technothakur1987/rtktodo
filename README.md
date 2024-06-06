@@ -1,4 +1,4 @@
-Certainly! Here is the updated README with proper headings for each component:
+I apologize for that oversight. Here is the revised README with all components properly structured under their respective headings:
 
 ```markdown
 # Redux Toolkit (RTK) for State Management in React
@@ -17,17 +17,7 @@ Redux Toolkit (RTK) is a library for managing complex state management in React 
 
 ### Components
 
-- **Todo Component:** Manages the list of tasks and interactions.
-- **EditModal Component:** Provides a UI for updating tasks.
-
-### Store Configuration
-
-- **Store Folder:** Contains the Redux logic.
-- **todoSlice.jsx:** Manages the tasks state.
-
-## Code Implementation
-
-### Todo Component
+#### Todo Component
 
 ```javascript
 import React, { useState } from "react";
@@ -124,7 +114,7 @@ const Todo = () => {
 export default Todo;
 ```
 
-### EditModal Component
+#### EditModal Component
 
 ```javascript
 import React, { useEffect, useState } from 'react';
@@ -187,7 +177,7 @@ const EditModal = ({ closeEdit, selector, updateIndex }) => {
 export default EditModal;
 ```
 
-### Redux Setup
+### Store Configuration
 
 #### Installing Redux Toolkit and React Redux
 
@@ -215,4 +205,55 @@ const todoSlice = createSlice({
     },
     deleteTask: (state, action) => {
       state.tasks = state.tasks.filter((task, index) => index !== action.payload);
-      localStorage.setItem('rt
+      localStorage.setItem('rtktasks', JSON.stringify(state.tasks));
+    },
+    clearAll: (state) => {
+      state.tasks = [];
+      localStorage.setItem('rtktasks', JSON.stringify(state.tasks));
+    },
+    updateTask: (state, action)
+
+ => {
+      const { task, status, updateIndex } = action.payload;
+      state.tasks[updateIndex] = { task, status };
+      localStorage.setItem('rtktasks', JSON.stringify(state.tasks));
+    }
+  }
+});
+
+export const { addTask, deleteTask, clearAll, updateTask } = todoSlice.actions;
+export default todoSlice.reducer;
+```
+
+### Creating the Redux Store
+
+```javascript
+import { configureStore } from '@reduxjs/toolkit';
+import todoReducer from './todoSlice.jsx';
+
+const store = configureStore({
+  reducer: {
+    tasks: todoReducer
+  }
+});
+
+export default store;
+```
+
+### Providing the Store to the App
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './store';
+import App from './App';
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
+```
+```
