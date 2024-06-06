@@ -228,16 +228,15 @@ export default todoSlice.reducer;
 ### Creating the Redux Store
 
 ```javascript
-import { configureStore } from '@reduxjs/toolkit';
-import todoReducer from './todoSlice.jsx';
+import { configureStore } from '@reduxjs/toolkit'
+import todoSlice from './todoSlice'
 
 const store = configureStore({
-  reducer: {
-    tasks: todoReducer
-  }
-});
+  reducer: todoSlice,
+  
+})
+ export default store
 
-export default store;
 ```
 
 ### Providing the Store to the App
@@ -255,5 +254,8 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+
+
+
 ```
 ```
