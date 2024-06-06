@@ -121,7 +121,7 @@ const Todo = () => {
 export default Todo;
 
 
-### EditModal Component
+## EditModal Component
 ```javascript
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
