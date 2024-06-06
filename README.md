@@ -1,7 +1,7 @@
 Redux Toolkit (RTK) for State Management in React
 Redux Toolkit (RTK) is a library for managing complex state management in React applications. Here are some key features and use cases:
 
-#Use Cases:
+**Use Cases:
 Boilerplate Reduction: RTK reduces the amount of boilerplate code needed.
 Simplified Store Configuration: It simplifies store setup and configuration.
 Reducers with createSlice function: It provides a straightforward way to create reducers.
