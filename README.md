@@ -273,6 +273,31 @@ ReactDOM.render(
 );
 
 
+## Using Redux Toolkit in Components
+
+To interact with the Redux state in your components, you can use the `useDispatch` hook to trigger the reducer functions and the `useSelector` hook to read the state.
+
+### Example Usage
+
+#### Using useDispatch
+
+```javascript
+import { useDispatch } from 'react-redux';
+
+const dispatch = useDispatch();
+dispatch(addTask({ task: 'Do laundry', status: false }));
+
+
+Using useSelector
+import { useSelector } from 'react-redux';
+
+const tasks = useSelector(state => state.tasks);
+console.log(tasks);
+
+
+
+In the above example, addTask is a Redux action creator function that adds a new task to the state, and state.tasks is the slice of state managed by the todoSlice reducer.
+
 
 ```
 ```
