@@ -14,6 +14,23 @@ Redux Toolkit (RTK) is a library for managing complex state management in React 
 - **Redux DevTools Integration:** It seamlessly integrates with Redux DevTools for better state debugging.
 
 ## Project Folder Structure (Todo App)
+.
+├── public
+│   ├── index.html
+│   └── ...
+├── src
+│   ├── components
+│   │   ├── Todo.jsx
+│   │   └── EditModal.jsx
+│   ├── store
+│   │   ├── todoSlice.jsx
+│   │   └── index.js
+│   ├── App.jsx
+│   ├── index.jsx
+│   └── ...
+├── package.json
+└── ...
+
 
 ### Components
 
